@@ -1,9 +1,16 @@
-const mongoose = require('mongoose');
+let { Schema, model } = require('mongoose');
 
-const imageSchema = new mongoose.Schema({
-	// name (randomly generated)
-	// path
-	// userId
+const imageSchema = new Schema({
+	imageUrl: {
+		type: String,
+		required: true
+	},
+	userId: {
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}
 });
 
-const imageModel = mongoose.model('image', imageSchema);
+const Image = model('Image', imageSchema);
+
+module.exports = Image;
