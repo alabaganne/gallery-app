@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import Img from "../images/login.svg";
 import { useAuth } from "../hooks/auth";
+import emailValidation from "../helpers/email";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    const ers = [];
+    if (!emailValidation(email)) {
+      ers.push("email must be valid");
+    }
+    if (password.length < 8) {
+      ers.push("password min length is 8");
+    }
+    if (ers.length > 0) {
+      setErrors(ers);
+      return;
+    }
+    setErrors([]);
     login({ email, password });
   };
   return (
@@ -55,6 +68,11 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+            </div>
+            <div>
+              {errors.map((error) => (
+                <p className=" text-red-600">*{error}</p>
+              ))}
             </div>
             <div className=" text-center">
               <button
