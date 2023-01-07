@@ -34,9 +34,10 @@ const Image = ({
   const { cookies } = useAuth();
   const deleteImage = async () => {
     try {
-      await api.delete("/api/images/" + id, {
+      await api.delete("/images/" + id, {
         headers: { Authorization: `Bearer ${cookies.token}` },
       });
+      setDeleted(true);
       setDeleted(true);
     } catch (e) {
       alert(e);
@@ -45,12 +46,12 @@ const Image = ({
     }
   };
   return (
-    <div className="w-[300px] h-[300px] relative image-container">
-      <img
-        src={Nature}
-        className=" w-[300px] h-[300px] object-cover"
-        alt="img"
-      />
+    <div
+      className={`w-[300px] h-[300px] relative image-container ${
+        deleted ? "hidden" : "block"
+      }`}
+    >
+      <img src={img} className=" w-[300px] h-[300px] object-cover" alt="img" />
       <div className="hidden justify-center items-center absolute top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] image-description">
         <p className=" text-white leading-6 w-[80%] m-auto text-center">
           {desc}
