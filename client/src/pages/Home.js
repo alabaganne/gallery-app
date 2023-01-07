@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Upload from "../images/upload.svg";
 import Logout from "../images/logout.svg";
 import Profile from "../components/Profile";
 import Image from "../components/Image";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../firebase";
 
 const style = {
   position: "absolute",
@@ -18,6 +20,9 @@ const style = {
 };
 
 const Home = () => {
+  const [percent, setPercent] = useState(0);
+
+  const [images, setImages] = React.useState([]);
   const [filename, setFilename] = React.useState("Upload");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -26,6 +31,43 @@ const Home = () => {
   const handleChange = (e) => {
     const name = e.target.files[0].name;
     setFilename(name);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newImage = e.target.files[i];
+      newImage["id"] = Math.random();
+      setImages((prevState) => [...prevState, newImage]);
+    }
+  };
+
+  const handleUpload = () => {
+    images.map((image) => {
+      // const uploadTask = ref(`images/${image.name}`).put(image);
+      const storageRef = ref(storage, `/images/${image.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          ); // update progress
+          console.log(percent);
+          setPercent(percent);
+        },
+        (err) => console.log(err),
+        () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            console.log(url);
+          });
+        }
+      );
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleUpload();
+    setImages([]);
+    setFilename("Upload");
   };
   return (
     <div className="min-h-screen w-screen">
@@ -105,7 +147,10 @@ const Home = () => {
               <label>Description</label>
               <textarea className="input" />
             </div>
-            <button className=" text-white text-lg mt-4 bg-blue py-2 px-8 rounded-md">
+            <button
+              onClick={handleSubmit}
+              className=" text-white text-lg mt-4 bg-blue py-2 px-8 rounded-md"
+            >
               Submit
             </button>
           </form>

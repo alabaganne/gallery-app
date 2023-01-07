@@ -17,7 +17,6 @@ const ReactFirebaseFileUpload = () => {
   };
 
   const handleUpload = () => {
-    const promises = [];
     images.map((image) => {
       // const uploadTask = ref(`images/${image.name}`).put(image);
       const storageRef = ref(storage, `/images/${image.name}`);
@@ -40,10 +39,6 @@ const ReactFirebaseFileUpload = () => {
         }
       );
     });
-
-    // Promise.all(promises)
-    //   .then(() => alert("All images uploaded"))
-    //   .catch((err) => console.log(err));
   };
 
   console.log("images: ", images);
