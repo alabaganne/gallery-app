@@ -16,7 +16,7 @@ const Register = () => {
     e.preventDefault();
     console.log("submit");
     const ers = [];
-    if (emailValidation(email)) {
+    if (!emailValidation(email)) {
       ers.push("email must be valid");
     }
     if (username.length < 4) {
