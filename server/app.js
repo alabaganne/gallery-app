@@ -20,6 +20,7 @@ app.use(cors({
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/images', authMiidelware, require('./routes/images'));
+app.use('/api/users', require('./routes/users'));
 
 app.listen(port, function() {
 	console.log('gallery app running on port ' + port);
