@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Upload from "../images/upload.svg";
 import Logout from "../images/logout.svg";
 import Profile from "../components/Profile";
@@ -7,6 +7,9 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
+import api from "../components/api";
+import { useAuth } from "../hooks/auth";
+import { useCookies } from "react-cookie";
 
 const style = {
   position: "absolute",
@@ -20,13 +23,29 @@ const style = {
 };
 
 const Home = () => {
+  const [description, setDescription] = useState("");
   const [percent, setPercent] = useState(0);
-
   const [images, setImages] = React.useState([]);
   const [filename, setFilename] = React.useState("Upload");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [userImages, setUserImages] = useState([]);
+
+  const { cookies } = useAuth();
+  const [, setCookies, removeCookie] = useCookies();
+
+  const fetchImages = async () => {
+    const res = await api.get("/images/", {
+      headers: { Authorization: `Bearer ${cookies.token}` },
+    });
+    setUserImages(res.data);
+    console.log(res.data);
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.files[0].name;
@@ -38,7 +57,8 @@ const Home = () => {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async (e) => {
+    e.preventDefault();
     images.map((image) => {
       // const uploadTask = ref(`images/${image.name}`).put(image);
       const storageRef = ref(storage, `/images/${image.name}`);
@@ -56,18 +76,35 @@ const Home = () => {
         () => {
           // download url
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-            console.log(url);
+            // console.log(url);
+            api
+              .post(
+                "/images",
+                {
+                  imageUrl: url,
+                  description,
+                },
+                {
+                  headers: { Authorization: `Bearer ${cookies.token}` },
+                }
+              )
+              .then(() => {
+                console.log("successfully");
+                window.location.reload(false);
+                handleClose();
+                setUserImages((prevState) => [url, ...prevState]);
+              })
+              .catch((e) => console.log(e));
+            setImages([]);
+            setFilename("Upload");
           });
         }
       );
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleUpload();
-    setImages([]);
-    setFilename("Upload");
+  const logout = () => {
+    removeCookie("token");
   };
   return (
     <div className="min-h-screen w-screen">
@@ -95,7 +132,10 @@ const Home = () => {
             <img src={Upload} className=" w-8 h-8" />
             <p className=" text-xl">Upload</p>
           </div>
-          <div className=" flex justify-center items-center gap-4 mb-5">
+          <div
+            onClick={logout}
+            className=" flex justify-center items-center gap-4 mb-5"
+          >
             <img src={Logout} className=" w-8 h-8" />
             <p className=" text-xl">Logout</p>
           </div>
@@ -105,8 +145,11 @@ const Home = () => {
         <Profile />
         <hr className=" w-[90%] m-auto my-10" />
         <div className="flex flex-wrap items-center gap-10 justify-center">
-          {Array.from(Array(10).keys()).map((i) => (
+          {/* {Array.from(Array(10).keys()).map((i) => (
             <Image key={i} />
+          ))} */}
+          {userImages.map((image) => (
+            <Image img={image.imageUrl} id={image._id} />
           ))}
         </div>
       </div>
@@ -145,11 +188,18 @@ const Home = () => {
             </label>
             <div className="mt-6">
               <label>Description</label>
-              <textarea className="input" />
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="input"
+              />
             </div>
             <button
-              onClick={handleSubmit}
-              className=" text-white text-lg mt-4 bg-blue py-2 px-8 rounded-md"
+              disabled={images.length == 0}
+              onClick={handleUpload}
+              className={` text-white text-lg mt-4 ${
+                images.length == 0 ? " bg-gray-300" : " bg-blue"
+              }  py-2 px-8 rounded-md`}
             >
               Submit
             </button>
