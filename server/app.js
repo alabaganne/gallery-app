@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const port = 3000;
 let authMiidelware = require('./middlewares/auth');
+let cors = require('cors');
 
 // connect to mongodb databse
 async function main() {
@@ -13,6 +14,9 @@ async function main() {
 main().catch(err => console.log('error when connecting to mongodb:', err));
 
 app.use(express.json());
+app.use(cors({
+	origin: '*'
+}));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/images', authMiidelware, require('./routes/images'));
