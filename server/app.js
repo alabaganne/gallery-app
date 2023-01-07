@@ -14,13 +14,15 @@ async function main() {
 }
 main().catch((err) => console.log("error when connecting to mongodb:", err));
 
-app.use(express.json());
-app.use(
-  cors({
-    origin: "*",
-  })
-);
 
+app.use(express.json());
+app.use(cors({
+  origin: "*",
+}));
+app.use(function(req, res, next) {
+  console.log(`server running on port ${port} received a request`);
+  next();
+});
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/images', authMiidelware, require('./routes/images'));
 app.use('/api/users', require('./routes/users'));
