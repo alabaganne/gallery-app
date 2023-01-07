@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Upload from "../images/upload.svg";
 import Logout from "../images/logout.svg";
 import Profile from "../components/Profile";
@@ -7,6 +7,8 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
+import api from "../components/api";
+import { useAuth } from "../hooks/auth";
 
 const style = {
   position: "absolute",
@@ -21,12 +23,26 @@ const style = {
 
 const Home = () => {
   const [percent, setPercent] = useState(0);
-
   const [images, setImages] = React.useState([]);
   const [filename, setFilename] = React.useState("Upload");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [userImages, setUserImages] = useState([]);
+
+  const { cookies } = useAuth();
+
+  const fetchImages = async () => {
+    const res = await api.get("/images/", {
+      headers: { Authorization: `Bearer ${cookies.token}` },
+    });
+    setUserImages(res.data);
+    console.log(res.data);
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.files[0].name;

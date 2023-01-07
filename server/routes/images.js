@@ -14,6 +14,7 @@ router.get('/', async function(req, res) {
 
 router.post(
 	'/',
+	// todo: improve URL validation
 	body('imageUrl').isLength({ min: 8 }), // no url is shorter than 8 chars
 	body('userId').exists({ checkFalsy: true }),
 	function(req, res) {
@@ -25,7 +26,7 @@ router.post(
 			});
 		}
 
-		let image = new Image({ userId, imageUrl });
+		let image = new Image({ userId, imageUrl, description: req.body.description || null });
 		image.save(function(err) {
 			if(err) return res.status(400).send('error: ' + err);
 
