@@ -12,32 +12,32 @@ router.post(
 	async function(req, res) {
 		// validate request
 		const errors = validationResult(req);
-		if(!errors.isEmpty()) {
-			return res.status(422).send({ errors: errors.array() });
-		}
+		if(!errors.isEmpty()) return res.status(422).send({ errors: errors.array() });
 
 		const { email, password } = req.body;
-		// get user from the DB using email address
-		const user = await User.findOne({ '$or': [{ email }, { password }] });
-		console.log('user', user);
-		if(user) {
-			// compare password in the db with hashed request body password
-			bcrypt.compare(req.body.password, user.password, function(err, same) {
-				if(same === true) {
-					// create and send auth token
-					const token = jwt.sign(
-						{ userId: user._id },
-						process.env.JWT_SECRET
-					);
 
-					res.send(token);
-				} else {
-					res.send('invalid credentials');
-				}
-			});
-		} else {
-			res.send(404).send('invalid credentials');
-		}
+		// get user from the DB using email address or username
+		const user = await User.findOne({ '$or': [{ email }, { password }] });
+		if(!user) return res.status(404).send({
+			message: 'Invalid credentials'
+		});
+		
+		// compare password in the db with hashed request body password
+		bcrypt.compare(req.body.password, user.password, function(err, same) {
+			if(same === true) {
+				// create and send auth token
+				const token = jwt.sign(
+					{ userId: user._id },
+					process.env.JWT_SECRET
+				);
+
+				res.send(token);
+			} else {
+				res.status(404).send({
+					message: 'Invalid credentials'
+				});
+			}
+		});
 	}
 );
 
@@ -51,15 +51,15 @@ router.post(
 	async function(req, res) {
 		// validate request
 		const errors = validationResult(req);
-		if(!errors.isEmpty()) {
-			return res.status(422).send({ errors: errors.array() });
-		}
+		if(!errors.isEmpty()) return res.status(422).send({ errors: errors.array() });
 
 		const { name, username, email, password } = req.body;
 		
 		// check if email is available
 		let user = await User.findOne({ '$or': [{username}, {password}] });
-		if(user) return res.status(400).send('duplicate email or username');
+		if(user) return res.status(400).send({
+			message: 'Duplicate email or username'
+		});
 
 		bcrypt.hash(password, saltRounds, async function(err, hashedPassword) {
 			if(err) {
@@ -79,7 +79,9 @@ router.post(
 				});
 			} catch(err) {
 				console.log(err);
-				res.status(400).send('error saving new user in the database: ' + err);
+				res.status(400).send({
+					message: 'Error creating user'
+				});
 			}
 		});
 	}

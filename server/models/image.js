@@ -11,7 +11,7 @@ const imageSchema = new Schema({
 	}
 });
 
-imageSchema.index({ email: 1, userId: 1 }, { unique: true });
+imageSchema.index({ imageUrl: 1, userId: 1 }, { unique: true });
 
 const Image = model('Image', imageSchema);
 

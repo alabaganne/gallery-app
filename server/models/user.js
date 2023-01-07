@@ -20,9 +20,13 @@ const userSchema = new mongoose.Schema({
 		required: true
 	},
 	profileImageUrl: {
-		type: String, // path to profile image, e.g: images/profile-{userId}.jpg
+		type: String,
 		required: false,
 		default: null
+	},
+	isAdmin: {
+		type: Boolean,
+		default: false
 	}
 });
 
