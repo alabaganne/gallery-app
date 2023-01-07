@@ -9,6 +9,7 @@ let authMiidelware = require("./middlewares/auth");
 
 // connect to mongodb databse
 async function main() {
+	mongoose.set('strictQuery', false);
   await mongoose.connect(process.env.DB_CONNECTION_URL);
 }
 main().catch((err) => console.log("error when connecting to mongodb:", err));
