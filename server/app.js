@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 var cors = require("cors");
 const port = 3000;
 let authMiidelware = require("./middlewares/auth");
-let cors = require("cors");
 
 // connect to mongodb databse
 async function main() {
@@ -14,7 +13,6 @@ async function main() {
 }
 main().catch((err) => console.log("error when connecting to mongodb:", err));
 
-app.use(cors());
 app.use(express.json());
 app.use(
   cors({
