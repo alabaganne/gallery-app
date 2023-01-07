@@ -18,7 +18,7 @@ router.post(
     const { email, password } = req.body;
 
     // get user from the DB using email address or username
-    const user = await User.findOne({ $or: [{ email }, { password }] });
+    const user = await User.findOne({ email });
     if (!user)
       return res.status(404).send({
         message: "Invalid credentials",

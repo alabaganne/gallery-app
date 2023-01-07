@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
+    "start-1": "cross-env PORT=3001 node app.js",
+    "start-2": "cross-env PORT=3002 node app.js",
+    "start-3": "cross-env PORT=3003 node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +22,7 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.20"
   }

@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 var cors = require("cors");
-const port = 3000;
+const port = process.env.PORT || 3000;
 let authMiidelware = require("./middlewares/auth");
 
 // connect to mongodb databse
