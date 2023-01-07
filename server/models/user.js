@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
 	},
 	profileImageUrl: {
 		type: String, // path to profile image, e.g: images/profile-{userId}.jpg
-		required: false
+		required: false,
+		default: null
 	}
 });
 

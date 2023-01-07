@@ -1,9 +1,10 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = 3000;
-
-require('dotenv').config();
+let authMiidelware = require('./middlewares/auth');
 
 // connect to mongodb databse
 async function main() {
@@ -13,9 +14,8 @@ main().catch(err => console.log('error when connecting to mongodb:', err));
 
 app.use(express.json());
 
-app.route('/api/images', require('./routes/images'));
-app.route('/auth', require('./routes/auth'));
-
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/images', authMiidelware, require('./routes/images'));
 
 app.listen(port, function() {
 	console.log('gallery app running on port ' + port);

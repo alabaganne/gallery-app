@@ -10,8 +10,16 @@ router.post(
 	body('email').isEmail(),
 	body('password').isLength({ min: 8 }),
 	async function(req, res) {
+		// validate request
+		const errors = validationResult(req);
+		if(!errors.isEmpty()) {
+			return res.status(422).send({ errors: errors.array() });
+		}
+
+		const { email, password } = req.body;
 		// get user from the DB using email address
-		const user = await User.findOne({ email: req.body.email });
+		const user = await User.findOne({ '$or': [{ email }, { password }] });
+		console.log('user', user);
 		if(user) {
 			// compare password in the db with hashed request body password
 			bcrypt.compare(req.body.password, user.password, function(err, same) {
@@ -37,39 +45,44 @@ router.post(
 	'/register',
 	// validate user data
 	body('name').isLength({ min: 8, max: 50 }),
+	body('username').isLength({ min: 4, max: 50 }),
 	body('email').isEmail(),
-	body('password').isLength({ min: 8 }).equals('passwordConfirmation'),
-	function(req, res) {
-		// check if email is available
-		let user = User.findOne({ email: req.body.email });
-		console.log('user', user);
-		if(user) {
-			return res.status(400).send('email is used');
+	body('password').isLength({ min: 8 }),
+	async function(req, res) {
+		// validate request
+		const errors = validationResult(req);
+		if(!errors.isEmpty()) {
+			return res.status(422).send({ errors: errors.array() });
 		}
 
-		bcrypt.hash(req.body.password, saltRounds, async function(err, hashedPassword) {
+		const { name, username, email, password } = req.body;
+		
+		// check if email is available
+		let user = await User.findOne({ '$or': [{username}, {password}] });
+		if(user) return res.status(400).send('duplicate email or username');
+
+		bcrypt.hash(password, saltRounds, async function(err, hashedPassword) {
 			if(err) {
 				console.log(err);
-				res.status(500).send('error');
+				return res.status(500).send('error');
 			}
 
 			try {
 				// save new record
-				user = new User({
-					name: req.body.email,
-					email: req.body.email,
-					password: hashedPassword
+				user = new User({ name, username, email, password: hashedPassword }); // _id is generated at this step and added to the variable user
+				user.save();
+
+				// success response, redirect user to the login page
+				res.status(201).send({
+					message: 'User created',
+					data: user
 				});
-
-				await user.save();
-
-				// success response, redirect user to sign up page
-				res.status(201).send('user created');
 			} catch(err) {
 				console.log(err);
+				res.status(400).send('error saving new user in the database: ' + err);
 			}
-
-
-		})
+		});
 	}
 );
+
+module.exports = router;

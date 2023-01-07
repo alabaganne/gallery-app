@@ -11,6 +11,8 @@ const imageSchema = new Schema({
 	}
 });
 
+imageSchema.index({ email: 1, userId: 1 }, { unique: true });
+
 const Image = model('Image', imageSchema);
 
 module.exports = Image;
