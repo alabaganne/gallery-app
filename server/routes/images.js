@@ -25,7 +25,7 @@ router.post(
 			});
 		}
 
-		let image = new Image({ userId, imageUrl });
+		let image = new Image({ userId, imageUrl, description: req.body.description || null });
 		image.save(function(err) {
 			if(err) return res.status(400).send('error: ' + err);
 
