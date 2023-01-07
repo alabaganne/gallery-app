@@ -1,0 +1,110 @@
+2023/01/07 14:35:52 [error] 46124#52416: *1 CreateFile() "C:\Projects\nginxCrashcourse\nginx-1.22.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2023/01/07 14:47:30 [crit] 24464#39140: *1 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:47:33 [crit] 24464#39140: *2 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:47:47 [crit] 24464#39140: *3 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:53:02 [notice] 24632#876: signal process started
+2023/01/07 14:55:21 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:25 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:44 [notice] 7072#17312: signal process started
+2023/01/07 14:55:47 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:48 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:48 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:48 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:49 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:56 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:55:57 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:13 [notice] 24848#24828: signal process started
+2023/01/07 14:56:17 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:17 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:18 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:18 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:18 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:18 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:19 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:19 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:19 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:19 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:20 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:56:20 [error] 23472#11904: *1 "C:/Projects/nginxCrashcourse/index/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:05 [crit] 10112#13636: *1 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:06 [crit] 10112#13636: *2 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:06 [crit] 10112#13636: *3 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:07 [crit] 10112#13636: *4 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:07 [crit] 10112#13636: *5 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:23 [notice] 14636#10124: signal process started
+2023/01/07 14:57:26 [crit] 10112#13636: *6 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:27 [error] 14888#22460: *7 "C:/Projects/nginxCrashcourse/index.html/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:27 [error] 14888#22460: *7 "C:/Projects/nginxCrashcourse/index.html/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:28 [error] 14888#22460: *7 "C:/Projects/nginxCrashcourse/index.html/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:29 [error] 14888#22460: *7 "C:/Projects/nginxCrashcourse/index.html/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:38 [notice] 29628#24928: signal process started
+2023/01/07 14:57:40 [error] 14888#22460: *8 "C:/Projects/nginxCrashcourse/index.html/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:41 [crit] 15664#18128: *9 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:41 [crit] 15664#18128: *10 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:57:42 [crit] 15664#18128: *11 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:33 [notice] 5464#3332: signal process started
+2023/01/07 14:58:36 [crit] 15664#18128: *12 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:36 [crit] 5440#6456: *13 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:36 [crit] 5440#6456: *14 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:36 [crit] 5440#6456: *15 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:37 [crit] 5440#6456: *16 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:37 [crit] 5440#6456: *17 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:37 [crit] 5440#6456: *18 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:38 [crit] 5440#6456: *19 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:38 [crit] 5440#6456: *20 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:38 [crit] 5440#6456: *21 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 14:58:38 [crit] 5440#6456: *22 GetFileAttributesEx() "C:\Projects
+ginxCrashcourse" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:37 [notice] 30104#25736: signal process started
+2023/01/07 15:00:40 [crit] 3080#8784: *24 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:40 [crit] 3080#8784: *25 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:41 [crit] 3080#8784: *26 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:41 [crit] 3080#8784: *27 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:41 [crit] 3080#8784: *28 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:42 [crit] 3080#8784: *29 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:42 [crit] 3080#8784: *30 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:42 [crit] 3080#8784: *31 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:43 [crit] 3080#8784: *32 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:00:43 [crit] 3080#8784: *33 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:01:12 [crit] 3080#8784: *35 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index.html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:01:12 [crit] 3080#8784: *36 CreateFile() "C:\Usersamif\Desktop\mysite\index.html/favicon.ico" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2023/01/07 15:30:51 [notice] 17124#14032: signal process started
+2023/01/07 15:30:55 [crit] 7068#20432: *38 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:55 [crit] 7068#20432: *39 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:56 [crit] 7068#20432: *40 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:56 [crit] 7068#20432: *41 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:56 [crit] 7068#20432: *42 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:56 [crit] 7068#20432: *43 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:58 [crit] 7068#20432: *44 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:58 [crit] 7068#20432: *45 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:59 [crit] 7068#20432: *46 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:59 [crit] 7068#20432: *47 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:30:59 [crit] 7068#20432: *48 GetFileAttributesEx() "C:\Usersamif\Desktop\mysite\index" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2023/01/07 15:31:39 [emerg] 28976#18452: directive "server_name" is not terminated by ";" in C:\Projects\nginxCrashcourse\nginx-1.22.1/conf/nginx.conf:5
+2023/01/07 15:31:48 [emerg] 24452#13744: "events" directive is not allowed here in C:\Projects\nginxCrashcourse\nginx-1.22.1/conf/nginx.conf:10
+2023/01/07 15:32:12 [emerg] 26476#28860: unexpected end of file, expecting "}" in C:\Projects\nginxCrashcourse\nginx-1.22.1/conf/nginx.conf:10
+2023/01/07 15:34:47 [notice] 2184#12188: signal process started
+2023/01/07 17:06:25 [notice] 31556#22352: signal process started
+2023/01/07 17:06:45 [error] 28312#25932: *54 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:3001/", host: "localhost:8080"
