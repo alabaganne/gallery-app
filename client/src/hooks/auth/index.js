@@ -10,25 +10,25 @@ export const UserProvider = ({ children }) => {
   const [cookies, setCookies, removeCookie] = useCookies();
 
   const login = async ({ email, password }) => {
-    const res = await api.post("/auth", {
+    const res = await api.post("/auth/login", {
       email: email,
       password: password,
     });
-    setCookies("token", res.data.token); // your token
-    setCookies("name", res.data.name); // optional data
+    setCookies("token", res.data); // your token
+    console.log(res);
     navigate("/");
   };
 
   const register = async ({ username, email, password }) => {
     console.log("from auth: ", username, email, password);
-    const res = await api.post("/auth", {
+    const res = await api.post("/auth/register", {
       username,
       email: email,
       password: password,
     });
+    console.log(res);
     setCookies("token", res.data.token); // your token
-    setCookies("name", res.data.name); // optional data
-    navigate("/");
+    navigate("/login");
   };
 
   const logout = () => {

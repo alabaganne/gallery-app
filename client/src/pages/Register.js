@@ -1,17 +1,41 @@
 import React, { useState } from "react";
 import Img from "../images/login.svg";
 import { useAuth } from "../hooks/auth";
+import emailValidation from "../helpers/email";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const { register } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
+    const ers = [];
+    if (emailValidation(email)) {
+      ers.push("email must be valid");
+    }
+    if (username.length < 4) {
+      ers.push("username min length is 4");
+    }
+    if (password.length < 8) {
+      ers.push("password min length is 8");
+    }
+    if (password != repeatPassword) {
+      ers.push("passwords must be the same");
+    }
+
+    if (ers.length > 0) {
+      setErrors(ers);
+      return;
+    }
+
+    setErrors([]);
+
     register({ username, email, password });
   };
   return (
@@ -66,6 +90,23 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+            </div>
+            <div className=" my-6">
+              <label className=" text-xl ml-4 text-blue">
+                Repeat Password{" "}
+              </label>
+              <input
+                value={repeatPassword}
+                className="input"
+                type="password"
+                onChange={(e) => setRepeatPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              {errors.map((error) => (
+                <p className=" text-red-600">*{error}</p>
+              ))}
             </div>
             <div className=" text-center">
               <button
