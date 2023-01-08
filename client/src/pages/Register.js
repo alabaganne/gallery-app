@@ -108,16 +108,17 @@ const Register = () => {
                 <p className=" text-red-600">*{error}</p>
               ))}
             </div>
-            <div className=" text-center flex gap-8 justify-center">
+            <div className=" text-center flex-col gap-16 justify-center items-center">
               <button
                 onClick={handleSubmit}
                 className=" text-white text-lg mt-4 bg-blue p-4 px-12 rounded-md">
                 Register
               </button>
               <Link to="/login">
-                <button className=" text-white text-lg mt-4 bg-blue p-4 px-12 rounded-md">
-                  Login
-                </button>
+                <p className=" text-blue text-lg mt-4 cursor-pointer hover:underline no-underline">
+                  If you have an account{' '}
+                  <span className="font-medium">Login</span>
+                </p>
               </Link>
             </div>
           </form>
