@@ -7,7 +7,7 @@ router.get("/", async function (req, res) {
   // get auth user images
   const { userId } = req; // coming from the auth middleware
 
-  let images = await Image.find({ userId }, ["_id", "imageUrl"]);
+  let images = await Image.find({ userId }, ["_id", "imageUrl", "description"]);
 
   res.send(images);
 });

@@ -4,7 +4,7 @@
 
 @layer components {
   .input {
-    @apply p-4 border-2 border-[#A7A7A7] rounded-md w-full outline-none mt-2;
+    @apply p-4 py-2 border-2 border-[#A7A7A7] rounded-md w-full outline-none mt-2;
   }
 }
 

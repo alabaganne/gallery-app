@@ -18,11 +18,7 @@ const style = {
   p: 4,
 };
 
-const Image = ({
-  img,
-  id,
-  desc = "Lorem ipsum dolor sit amet consectetur. Id risus molestie lacus sed ut nulla purus.",
-}) => {
+const Image = ({ img, id, desc }) => {
   const [deleted, setDeleted] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);

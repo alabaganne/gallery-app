@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Img from '../images/login.svg';
 import { useAuth } from '../hooks/auth';
 import emailValidation from '../helpers/email';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -107,12 +108,18 @@ const Register = () => {
                 <p className=" text-red-600">*{error}</p>
               ))}
             </div>
-            <div className=" text-center">
+            <div className=" text-center flex-col gap-16 justify-center items-center">
               <button
                 onClick={handleSubmit}
                 className=" text-white text-lg mt-4 bg-blue p-4 px-12 rounded-md">
                 Register
               </button>
+              <Link to="/login">
+                <p className=" text-blue text-lg mt-4 cursor-pointer hover:underline no-underline">
+                  If you have an account{' '}
+                  <span className="font-medium">Login</span>
+                </p>
+              </Link>
             </div>
           </form>
         </div>
